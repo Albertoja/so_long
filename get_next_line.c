@@ -113,11 +113,9 @@ char	*get_next_line(int fd)
 {
 	static char	*text;
 	char		*textaux;
-	int			i;
 	int			a;
 
 	a = BUFFER_SIZE;
-	i = 0;
 	if (BUFFER_SIZE <= 0 || fd < 0 || fd > 1000)
 		return (NULL);
 	text = ft_read(fd, text, a);

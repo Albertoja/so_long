@@ -13,5 +13,6 @@
 char	*get_next_line(int fd);
 void	ft_read_map(void);
 int ft_count_lines(int fd);
+void	ft_print_matrix(char **mat);
 
 #endif
