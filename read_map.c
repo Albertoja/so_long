@@ -32,6 +32,7 @@ void	ft_read_map(void)
 		j = 0;
 		i++;
 	}
+	ft_print_matrix(mat_map);
 	ft_check_map(mat_map, mat_size);
 	ft_print_matrix(mat_map);
 	//write(1, "\n", 1);
