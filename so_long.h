@@ -8,7 +8,7 @@
 # include <unistd.h>
 # include <fcntl.h>
 # include <stdlib.h>
-#include <stdio.h>
+# include <stdio.h>
 
 char	*get_next_line(int fd);
 void	ft_read_map(void);
@@ -16,5 +16,6 @@ int ft_count_lines(int fd);
 void	ft_print_matrix(char **mat);
 void	ft_free(char **matrix);
 void	ft_check_map(char **str, int mat_size);
+char	*ft_strchr(const char *s, int c);
 
 #endif

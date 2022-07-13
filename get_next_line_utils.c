@@ -6,7 +6,7 @@
 /*   By: aespinos <aespinos@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/24 19:07:05 by aespinos          #+#    #+#             */
-/*   Updated: 2022/06/23 18:20:33 by aespinos         ###   ########.fr       */
+/*   Updated: 2022/07/13 19:26:41 by aespinos         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,24 +26,24 @@ size_t	ft_strlen(const char *s)
 	}
 }
 
-char	*ft_strchr(const char *s, int c)
-{
-	int	a;
+// char	*ft_strchr(const char *s, int c)
+// {
+// 	int	a;
 
-	a = 0;
-	if (!s)
-		return (NULL);
-	while (s[a] != '\0')
-	{
-		if (s[a] == (unsigned char) c)
-			return ((char *)s + a);
-		a++;
-	}
-	if (s[a] == (unsigned char)c)
-		return ((char *)(s + a));
-	else
-		return (0);
-}
+// 	a = 0;
+// 	if (!s)
+// 		return (NULL);
+// 	while (s[a] != '\0')
+// 	{
+// 		if (s[a] == (unsigned char) c)
+// 			return ((char *)s + a);
+// 		a++;
+// 	}
+// 	if (s[a] == (unsigned char)c)
+// 		return ((char *)(s + a));
+// 	else
+// 		return (0);
+// }
 
 char	*ft_strdup(const char *s1)
 {

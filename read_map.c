@@ -15,9 +15,11 @@ void	ft_read_map(void)
 	j = 0;
 	fd = open("maps/ber.ber", O_RDONLY);
 	mat_size = ft_count_lines(fd);
+	close(fd);
 	fd = open("maps/ber.ber", O_RDONLY);
 	str = get_next_line(fd);
 	mat_map = (char **)malloc(sizeof(char *) * (mat_size + 1));
+	mat_map[mat_size] = NULL;
 	while (str)
 	{
 		mat_map[i] = (char *)malloc(sizeof(char) * (ft_strlen(str) + 1));
@@ -32,13 +34,13 @@ void	ft_read_map(void)
 		j = 0;
 		i++;
 	}
-	ft_print_matrix(mat_map);
+	close(fd);
+	//ft_print_matrix(mat_map);
 	ft_check_map(mat_map, mat_size);
 	ft_print_matrix(mat_map);
 	//write(1, "\n", 1);
 	//write(1, &mat_map[1][1], 1);
 	//printf("%s", mat_map[1]);
-
 
 
 }
