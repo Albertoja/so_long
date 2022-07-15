@@ -1,6 +1,6 @@
 #include "so_long.h"
 
-void	ft_read_map(void)
+char	**ft_read_map(void)
 {
 	int	fd;
 	char	*str;
@@ -35,12 +35,9 @@ void	ft_read_map(void)
 		i++;
 	}
 	close(fd);
-	//ft_print_matrix(mat_map);
 	ft_check_map(mat_map, mat_size);
-	ft_print_matrix(mat_map);
-	//write(1, "\n", 1);
-	//write(1, &mat_map[1][1], 1);
-	//printf("%s", mat_map[1]);
+	return(mat_map);
+
 
 
 }

@@ -21,6 +21,11 @@
 #  define BUFFER_SIZE 3
 # endif
 
+typedef struct s_player {
+	int	x;
+	int	y;
+}	t_player;
+
 char	*get_next_line(int fd);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strdup(const char *s1);

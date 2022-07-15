@@ -3,5 +3,9 @@
 
 int	main(void)
 {
-	ft_read_map();
+	char **map;
+
+	map = ft_read_map();
+	ft_print_matrix(map);
+	search_player(map);
 }

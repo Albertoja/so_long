@@ -1,4 +1,4 @@
-SRCS = main.c read_map.c get_next_line.c get_next_line_utils.c count_lines.c print_matrix.c so_long_utils.c check_map.c
+SRCS = main.c read_map.c get_next_line.c get_next_line_utils.c count_lines.c print_matrix.c so_long_utils.c check_map.c search_player.c
 
 LIBFT_PATH = libft/
 
@@ -6,7 +6,7 @@ OBJS	= $(SRCS:.c=.o)
 
 NAME	= so_long
 
-CFLAGS	= -Wall -Werror -Wextra -g3 -fsanitize=address
+CFLAGS	= -Wall -Werror -Wextra #-g3 -fsanitize=address
 
 GCC	= gcc
 
@@ -21,7 +21,7 @@ all:		$(NAME)
 
 $(NAME):	$(OBJS)
 	@make -C $(LIBFT_PATH) --silent
-	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -Imlx -lmlx -framework OpenGL -framework AppKit -o $(NAME) -I./libft -L./libft -lft
+	$(CC) $(CFLAGS) -o $(NAME) $(OBJS) -o $(NAME) -I./libft -L./libft -lft
 
 clean:		
 	$(RM) $(OBJS)
