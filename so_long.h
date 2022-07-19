@@ -10,6 +10,20 @@
 # include <stdlib.h>
 # include <stdio.h>
 
+typedef struct	s_data {
+	void	*img;
+	char	*addr;
+	int		bits_per_pixel;
+	int		line_length;
+	int		endian;
+}				t_data;
+
+typedef struct s_player {
+	int	x;
+	int	y;
+}	t_player;
+
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 char	*get_next_line(int fd);
 char	**ft_read_map(void);
 int ft_count_lines(int fd);

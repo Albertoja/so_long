@@ -7,11 +7,14 @@ t_player	*search_player(char **mat)
 	int y;
 	y = 0;
 	x = 0;
+	player = malloc(2);
+	player->x = 0;
+	player->y = 0;
 	while(mat[y])
 	{
 		while(mat[y][x])
 		{
-			if(mat[y][x] == 'P');
+			if(mat[y][x] == 'P')
 			{
 				player->x = x;
 				player->y = y;
