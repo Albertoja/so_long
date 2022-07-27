@@ -1,17 +1,18 @@
 #include "so_long.h"
-void	ft_print_matrix(char **mat)
+void	ft_print_matrix(t_all *all)
 {
 	int i;
 	int	j;
-
+	//char **mat;
+	//mat = all->map.map;
 	i = 0;
 	j = 0;
-	while(mat[i])
+	while(all->map.map[i])
 	{
 		j = 0;
-		while(mat[i][j])
+		while(all->map.map[i][j])
 		{
-			write(1, &mat[i][j], 1);
+			write(1, &all->map.map[i][j], 1);
 			j++;
 		}
 		write(1, "\n", 1);

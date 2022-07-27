@@ -75,28 +75,28 @@ void	ft_check_char_map(char **str, int mat_size)
 		cont_2 = 0;
 	}
 }
-void	ft_check_size_map(char **str)
-{
-	int	cont;
-	size_t len;
+// void	ft_check_size_map(char **str)
+// {
+// 	int	cont;
+// 	size_t len;
 
-	cont = 0;
-	len = ft_strlen(str[cont]);
-	while(str[cont])
-	{
-		if(ft_strlen(str[cont]) != len)
-		{
-			write(2, "ERROR -> sizemap\n", 17);
-			//ft_free(str);
-			exit(0);
-		}
-		cont++;
-	}
-}
+// 	cont = 0;
+// 	len = ft_strlen(str[cont]);
+// 	while(str[cont])
+// 	{
+// 		if(ft_strlen(str[cont]) != len)
+// 		{
+// 			write(2, "ERROR -> sizemap\n", 17);
+// 			//ft_free(str);
+// 			exit(0);
+// 		}
+// 		cont++;
+// 	}
+// }
 
 void	ft_check_map(char **str, int mat_size)
 {
-	ft_check_size_map(str);
+	//ft_check_size_map(str);
 	ft_check_char_map(str, mat_size);
 	ft_check_num_map(str);
 }
