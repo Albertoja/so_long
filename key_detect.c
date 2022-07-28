@@ -4,27 +4,6 @@
 void	press_up(t_all *all)
 {
 	write(1, "arriba\n", 7);
-	if (all->map.map[(all->player.y) + 1][all->player.x] == '1')
-		return ;
-	else
-		{
-			if (all->map.map[all->player.y + 1][all->player.x + 1] == 'E')
-			{
-				if(all->col == 0)
-					you_win(all);
-				else
-					return ;
-			}
-			if (all->map.map[all->player.y + 1][all->player.x + 1] == 'C')
-				all->col--;
-			all->map.map[all->player.y][all->player.x] = '0';
-			all->player.y = all->player.y + 1;
-			all->map.map[all->player.y][all->player.x] = 'P';
-		}
-}
-void	press_down(t_all *all)
-{
-	write(1, "abajo\n", 6);
 	if (all->map.map[(all->player.y) - 1][all->player.x] == '1')
 		return ;
 	else
@@ -40,6 +19,27 @@ void	press_down(t_all *all)
 				all->col--;
 			all->map.map[all->player.y][all->player.x] = '0';
 			all->player.y = all->player.y - 1;
+			all->map.map[all->player.y][all->player.x] = 'P';
+		}
+}
+void	press_down(t_all *all)
+{
+	write(1, "abajo\n", 6);
+	if (all->map.map[(all->player.y) + 1][all->player.x] == '1')
+		return ;
+	else
+		{
+			if (all->map.map[all->player.y + 1][all->player.x] == 'E')
+			{
+				if(all->col == 0)
+					you_win(all);
+				else
+					return ;
+			}
+			if (all->map.map[all->player.y + 1][all->player.x] == 'C')
+				all->col--;
+			all->map.map[all->player.y][all->player.x] = '0';
+			all->player.y = all->player.y + 1;
 			all->map.map[all->player.y][all->player.x] = 'P';
 		}
 }

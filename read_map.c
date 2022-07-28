@@ -1,6 +1,6 @@
 #include "so_long.h"
 
-char	**ft_read_map(void)
+char	**ft_read_map(t_all *all)
 {
 	int	fd;
 	char	*str;
@@ -17,9 +17,11 @@ char	**ft_read_map(void)
 	mat_size = ft_count_lines(fd);
 	close(fd);
 	fd = open("maps/ber.ber", O_RDONLY);
+	all->map.x = mat_size;
 	str = get_next_line(fd);
 	mat_map = (char **)malloc(sizeof(char *) * (mat_size + 1));
 	mat_map[mat_size] = NULL;
+	all->map.y = ft_strlen(str);
 	while (str)
 	{
 		mat_map[i] = (char *)malloc(sizeof(char) * (ft_strlen(str) + 1));

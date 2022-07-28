@@ -9,6 +9,7 @@
 # include <fcntl.h>
 # include <stdlib.h>
 # include <stdio.h>
+# include <mlx.h>
 
 typedef struct	s_data {
 	void	*img;
@@ -29,8 +30,16 @@ typedef struct	s_vars {
 }				t_vars;
 
 typedef struct s_map {
+	int		x;
+	int		y;
 	char	**map;
 }	t_map;
+
+typedef struct s_images {
+	int		px;
+	void	*mario;
+
+}	t_images;
 
 typedef struct s_all{
 	//void		*mlx_win;
@@ -41,6 +50,8 @@ typedef struct s_all{
 	t_data		data;
 	t_vars		vars;
 	t_map		map;
+	t_images	images;
+
 }				t_all;
 
 enum {
@@ -55,7 +66,7 @@ enum {
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 char	*get_next_line(int fd);
-char	**ft_read_map();
+char	**ft_read_map(t_all *all);
 int ft_count_lines(int fd);
 void	ft_print_matrix(t_all *all);
 void	ft_free(char **matrix);
