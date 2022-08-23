@@ -38,8 +38,13 @@ typedef struct s_map {
 typedef struct s_images {
 	int		px;
 	void	*mario;
+	void	*floor;
+	void	*wallup;
+	void	*coll;
+	void	*exit;
 
 }	t_images;
+
 
 typedef struct s_all{
 	//void		*mlx_win;
@@ -50,8 +55,7 @@ typedef struct s_all{
 	t_data		data;
 	t_vars		vars;
 	t_map		map;
-	t_images	images;
-
+	t_images	images;	
 }				t_all;
 
 enum {
@@ -62,6 +66,12 @@ enum {
 	ON_MOUSEMOVE = 6,
 	ON_EXPOSE = 12,
 	ON_DESTROY = 17
+};
+
+enum {
+	SZEIMG = 64,
+	MAXWIDTH = 5120,
+	MAXHEIGHT = 2880
 };
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
@@ -76,5 +86,7 @@ void	search_player_col(t_all *all);
 int	key_hook(int keycode, t_vars *vars);
 int	key_detect(int keycode, t_all *all);
 void	you_win(t_all *all);
+int	ft_printmap(t_all *all);
+void	ft_loadtilesimg(t_all *all);
 
 #endif

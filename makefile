@@ -1,4 +1,4 @@
-SRCS = main.c read_map.c get_next_line.c get_next_line_utils.c count_lines.c print_matrix.c so_long_utils.c check_map.c search_player_col.c print_utils.c key_detect.c win.c
+SRCS = main.c read_map.c get_next_line.c get_next_line_utils.c count_lines.c print_matrix.c so_long_utils.c check_map.c search_player_col.c print_utils.c key_detect.c win.c print_map.c
 
 LIBFT_PATH = libft/
 
