@@ -6,11 +6,11 @@ void	move_enemy(t_all *all)
 	int cont;
 
 	cont = 0;
-	i = (all->map.x) - 1;
-	j = all->map.y;
+	i = (all->map.x) - 3;
+	j = all->map.y - 2;
 	while(i > 0)
 	{
-		j = all->map.y;
+		j = all->map.y - 2;
 		while(j > 0)
 		{
 			if (all->map.map[i][j] == 'V')
@@ -31,7 +31,7 @@ void	move_enemy(t_all *all)
 	}
 	i = 0;
 	j = 0;
-	while(i < all->map.x)
+	while(i < all->map.x - 2)
 	{
 		j = 1;
 		while(j < all->map.y)

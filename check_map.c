@@ -1,5 +1,5 @@
 #include "so_long.h"
-void	ft_check_num_map(char **str)
+void	ft_check_num_map(t_all *all)
 {
 	static int num_c;
 	static int num_p;
@@ -8,95 +8,84 @@ void	ft_check_num_map(char **str)
 	int			cont_2;
 
 	cont = 0;
-	cont_2 = 0;
-	while(str[cont])
+	while(cont < all->map.x - 2)
 	{
-		while(str[cont][cont_2])
+		cont_2 = 0;
+		while(cont_2 < all->map.y)
 		{
-			if(str[cont][cont_2] == 'C')
+			// printf("cont %d\ncont2: %d\n", cont, cont_2);
+			// ft_putchar_fd(all->map.map[cont][cont_2], 1);
+			if(all->map.map[cont][cont_2] == 'C')
 				num_c++;
-			if(str[cont][cont_2] == 'P')
+			if(all->map.map[cont][cont_2] == 'P')
 				num_p++;
-			if(str[cont][cont_2] == 'E')
+			if(all->map.map[cont][cont_2] == 'E')
 				num_e++;
 			cont_2++;
 		}
 		cont++;
-		cont_2 = 0;
+
 	}
 	if(num_c < 1)
 	{
 		write(2, "ERROR -> invalid collectibles number\n", 37);
-		//ft_free(str);
+		//ft_free(all->map.map);
 		exit(0);
 	}
 	if(num_p != 1)
 	{
 		write(2, "ERROR -> invalid player number\n", 31);
-		//ft_free(str);
+		//ft_free(all->map.map);
 		exit(0);
 	}
 	if(num_e != 1)
 	{
 		write(2, "ERROR -> invalid exit number\n", 29);
-		//ft_free(str);
+		//ft_free(all->map.map);
 		exit(0);
 	}
 }
-void	ft_check_char_map(char **str, int mat_size)
+void	ft_check_char_map(t_all *all)
 {
 	int	cont;
 	int cont_2;
+	int	size;
 
+
+	//mat_size = mat_size - 2;
 	cont = 0;
-	cont_2 = 0;
-	while(str[cont])
+	size = ft_strlen(all->map.map[cont]);
+	while(cont < all->map.x - 2)
 	{
-		while(str[cont][cont_2])
+		cont_2 = 0;
+		while(cont_2 < all->map.y - 1)
 		{
-			if(str[0][cont_2] != '1' || str[mat_size - 1][cont_2] != '1' || str[cont][0] != '1' || str[cont][ft_strlen(str[cont])-1] != '1')
+			if(all->map.map[0][cont_2] != '1' || all->map.map[all->map.x - 3][cont_2] != '1' || all->map.map[cont][0] != '1' || all->map.map[cont][all->map.y - 2] != '1')
 			{
 				write(2, "ERROR -> the map is not closed\n", 31);
-				//ft_free(str);
+				//ft_free(all->map.map);
 				exit(0);
 			}
-			else if(str[cont][cont_2] != '0' && str[cont][cont_2]  != 'C' && str[cont][cont_2] != 'P' && str[cont][cont_2] != 'E' && str[cont][cont_2] != '1' && str[cont][cont_2] != '\n')
+			else if(all->map.map[cont][cont_2] != '0' && all->map.map[cont][cont_2]  != 'C' && all->map.map[cont][cont_2] != 'P' && all->map.map[cont][cont_2] != 'E' && all->map.map[cont][cont_2] != '1' && all->map.map[cont][cont_2] != '\n' &&all->map.map[cont][cont_2] != 'V')
 			{
 				write(2, "ERROR -> ", 9);
-				write(2, &str[cont][cont_2], 1);
+				write(2, &all->map.map[cont][cont_2], 1);
 				write(2, " -> is not a valid character for the map", 37);
 				write(2, "\n", 1);
-				//ft_free(str);
+				//ft_free(all->map.map);
 				exit(0);
 			}
 			cont_2++;
 		}
 		cont++;
-		cont_2 = 0;
 	}
 }
-// void	ft_check_size_map(char **str)
-// {
-// 	int	cont;
-// 	size_t len;
 
-// 	cont = 0;
-// 	len = ft_strlen(str[cont]);
-// 	while(str[cont])
-// 	{
-// 		if(ft_strlen(str[cont]) != len)
-// 		{
-// 			write(2, "ERROR -> sizemap\n", 17);
-// 			//ft_free(str);
-// 			exit(0);
-// 		}
-// 		cont++;
-// 	}
-// }
-
-void	ft_check_map(char **str, int mat_size)
+void	ft_check_map(t_all *all)
 {
-	//ft_check_size_map(str);
-	ft_check_char_map(str, mat_size);
-	ft_check_num_map(str);
+	//ft_check_size_map(all->map.map);
+
+	ft_check_num_map(all);
+	ft_check_char_map(all);
 }
+

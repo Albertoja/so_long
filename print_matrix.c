@@ -3,8 +3,6 @@ void	ft_print_matrix(t_all *all)
 {
 	int i;
 	int	j;
-	//char **mat;
-	//mat = all->map.map;
 	i = 0;
 	j = 0;
 	while(all->map.map[i])

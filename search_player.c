@@ -24,7 +24,5 @@ t_player	*search_player(char **mat)
 		y++;
 		x = 0;
 	}
-	printf("%i\n", player->x);
-	printf("%i\n", player->y);
 	return(player);
 }

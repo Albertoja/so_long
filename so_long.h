@@ -32,12 +32,17 @@ typedef struct	s_vars {
 typedef struct s_map {
 	int		x;
 	int		y;
+	int		recx;
+	int		recy;
 	char	**map;
 }	t_map;
 
 typedef struct s_images {
 	int		px;
 	void	*mario;
+	void	*mario2;
+	void	*pablo;
+	void	*pablo2;
 	void	*floor;
 	void	*wallup;
 	void	*coll;
@@ -51,11 +56,14 @@ typedef struct s_all{
 	//void		*mlx;
 	int			col;
 	int			win;
+	int			time;
+	int			swframe;
+	int			movements;
 	t_player	player;
 	t_data		data;
 	t_vars		vars;
 	t_map		map;
-	t_images	images;	
+	t_images	images;
 }				t_all;
 
 enum {
@@ -76,17 +84,20 @@ enum {
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
 char	*get_next_line(int fd);
-char	**ft_read_map(t_all *all);
-int ft_count_lines(int fd);
+void	ft_read_map(t_all *all, char **argv);
+int		ft_count_lines(int fd);
 void	ft_print_matrix(t_all *all);
 void	ft_free(char **matrix);
-void	ft_check_map(char **str, int mat_size);
+void	ft_check_map(t_all *all);
 char	*ft_strchr(const char *s, int c);
 void	search_player_col(t_all *all);
-int	key_hook(int keycode, t_vars *vars);
-int	key_detect(int keycode, t_all *all);
+int		key_hook(int keycode, t_vars *vars);
+int		key_detect(int keycode, t_all *all);
 void	you_win(t_all *all);
-int	ft_printmap(t_all *all);
+int		ft_printmap(t_all *all);
 void	ft_loadtilesimg(t_all *all);
-
+void	spawn_enemy(t_all *all);
+void	move_enemy(t_all *all);
+void	you_lose(t_all *all);
+int		endwindow(t_all *all);
 #endif
