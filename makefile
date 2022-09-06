@@ -1,36 +1,44 @@
-SRCS = main.c read_map.c get_next_line.c get_next_line_utils.c count_lines.c print_matrix.c so_long_utils.c check_map.c search_player_col.c print_utils.c key_detect.c win.c print_map.c
+SRCS = main.c read_map.c get_next_line.c count_lines.c so_long_utils.c check_map.c search_player_col.c key_detect.c win.c print_map.c spawn_enemy.c
 
-LIBFT_PATH = libft/
-
-OBJS	= $(SRCS:.c=.o)
+OBJS	= ${SRCS:.c=.o}
 
 NAME	= so_long
 
-CFLAGS	= -Wall -Werror -Wextra #-g3 -fsanitize=address
+MINILIB	= mlx/libmlx.a
 
-GCC	= gcc
+PATHMLIB	= mlx/
 
-LIBFT_PATH = libft/
+PATHLIB	= libft/
+
+LIBFT	= libft/libft.a
+
+CC	= gcc
 
 RM	= rm -f
 
-all:		$(NAME)
+CFLAGS	= -I. -Wall -Wextra -Werror -Imlx #-g3 -fsanitize=address
 
 .c.o:
-	$(GCC) $(CFLAGS)  -Imlx -c $< -o $@ -I$(LIBFT_PATH)
+		${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
-$(NAME):	$(OBJS)
-	@make -C $(LIBFT_PATH) --silent
-	$(CC) -o $(NAME) $(OBJS) -Imlx -lmlx -framework OpenGL -framework AppKit -o $(NAME) -I./libft -L./libft -lft
+${NAME}:	${OBJS}
+				@make -C ${PATHLIB}
+				@make -C ${PATHMLIB}
+				${CC} ${CFLAGS} ${MINILIB} ${LIBFT} ${OBJS} -L./mlx -lmlx -framework OpenGL -framework AppKit -L. -o ${NAME}
 
-clean:		
-	$(RM) $(OBJS)
-	make -C $(LIBFT_PATH) clean
+all:		${NAME}
 
-fclean:		clean
-		$(RM) $(NAME)
-		make -C $(LIBFT_PATH) fclean 
+clean:
+				@make clean -C ${PATHLIB}
+				@make clean -C ${PATHMLIB}
+				${RM} ${OBJS}
 
-re:		fclean all
+fclean: 	clean
+				@make clean
+				${RM} ${LIBFT}
+				${RM} ${MINILIB}
+				${RM} ${NAME}
 
-.PHONY:		all clean fclean re 
+re: 		fclean all
+
+.PHONY:		all clean fclean re

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   so_long.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: aespinos <aespinos@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/01 16:14:40 by aespinos          #+#    #+#             */
+/*   Updated: 2022/09/06 16:52:27 by aespinos         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
@@ -11,7 +23,7 @@
 # include <stdio.h>
 # include <mlx.h>
 
-typedef struct	s_data {
+typedef struct s_data {
 	void	*img;
 	char	*addr;
 	int		bits_per_pixel;
@@ -24,7 +36,7 @@ typedef struct s_player {
 	int	y;
 }	t_player;
 
-typedef struct	s_vars {
+typedef struct s_vars {
 	void	*mlx;
 	void	*win;
 }				t_vars;
@@ -50,10 +62,7 @@ typedef struct s_images {
 
 }	t_images;
 
-
 typedef struct s_all{
-	//void		*mlx_win;
-	//void		*mlx;
 	int			col;
 	int			win;
 	int			time;
